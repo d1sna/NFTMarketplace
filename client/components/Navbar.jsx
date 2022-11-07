@@ -9,7 +9,7 @@ import CustomButton from './CustomButton';
 const navItems = [{ name: 'Explore NFTs', link: '/explore-nfts' }, { name: 'My NFTs', link: '/my-nfts' }, { name: 'Listed NFTs', link: '/created-nfts' }];
 
 const MenuItem = ({
-  item, active, setActive, index, setIsOpen,
+  item, active, setActive, index, setIsOpen = () => {},
 }) => (
   <li
     key={index}
@@ -22,7 +22,7 @@ const MenuItem = ({
   </li>
 );
 
-const ButtonGroup = ({ setActive, router }) => {
+const ButtonGroup = ({ setActive, setIsOpen = () => {}, router }) => {
   const isConnected = true;
 
   return isConnected ? (
@@ -30,12 +30,18 @@ const ButtonGroup = ({ setActive, router }) => {
       text="Create"
       clickHandler={() => {
         setActive('');
+        setIsOpen(false);
         router.push('/create-nft');
       }}
     />
   ) : (
     <CustomButton
       text="Connect"
+      clickHandler={() => {
+        setActive('');
+        setIsOpen(false);
+        // router.push('/create-nft');
+      }}
     />
   );
 };
@@ -93,11 +99,10 @@ const Navbar = () => {
               index={index}
               active={active}
               setActive={setActive}
-              setIsOpen={setIsOpen}
             />
           ))}
         </ul>
-        <div className="flex flexCenter p-4 border-t">
+        <div className="flex flexCenter p-4 border-t mb-2">
           <ButtonGroup setActive={setActive} router={router} />
         </div>
       </div>
@@ -115,7 +120,7 @@ const Navbar = () => {
       </div>
 
       <div className="mx-4 md:hidden">
-        <ButtonGroup setActive={setActive} router={router} />
+        <ButtonGroup setActive={setActive} setIsOpen={setIsOpen} router={router} />
       </div>
 
       <div className="hidden md:flex mx-4">
