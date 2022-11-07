@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 const CreateNFT = () => (
-  <div>CreateNFT</div>
+  <div className="text-white ">CreateNFT</div>
 );
 
 // CreateNFT.propTypes = {
