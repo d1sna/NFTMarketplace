@@ -38,7 +38,7 @@ import headerbg from './headerbg.png';
 import loader from './loader.gif';
 import arrow from './arrow.png';
 
-export default {
+const images = {
   heartOutline,
   heart,
   logo,
@@ -79,3 +79,5 @@ export default {
   loader,
   arrow,
 };
+
+export default images;

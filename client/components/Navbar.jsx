@@ -50,7 +50,7 @@ const Navbar = () => {
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
 
       <div
-        onClick={() => setActive(null)}
+        onClick={() => { setActive(null); setIsOpen(false); }}
         className="flex flex-1 flex-row justify-start cursor-pointer"
       >
         <Link href="/">

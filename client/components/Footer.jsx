@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="flex justify-between sm:mt-4">
             {[instagram, telegram, discord, twitter].map((icon, index) => (
               <a href={ELinks[index]} aria-label={ELinks[index]} className="mx-2 cursor-pointer">
-                <Image src={icon} height={22} width={22} objectFit="contain" className={`${theme === 'light' && 'bg-inherit invert'}`} />
+                <Image src={icon} height={22} width={22} objectFit="contain" className={`${theme !== 'dark' && 'bg-inherit invert'}`} />
               </a>
             ))}
           </div>
